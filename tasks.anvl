@@ -1,0 +1,31 @@
+#!aml
+
+// tasks.anvl — ANVL.JS
+// Task definitions read by Tooling scripts.
+// Flat structure only: no inheritance, no var-refs, no interpolation.
+// All paths are relative to this file's directory.
+// No sync task — ANVL.JS has no consumer site.
+
+vars {
+    version := 2026.06.14,
+    name := anvl.js
+}
+
+unroll := {
+    tarball   := anvl.js.tar.gz
+    src_dir   := src
+    tests_dir := tests
+}
+
+test := {
+    runner    := node
+    tests_dir := tests
+}
+
+pack := {
+    source_dir := src
+    entry      := index.js
+    standalone := anvl
+    banner := "/* anvl.js 2026.06.14 */"
+    output     := module/anvl-browser.js
+}
